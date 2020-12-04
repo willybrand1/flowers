@@ -1,0 +1,65 @@
+<div class="container-flex">
+        <div class="row" >
+            <p>&nbsp;</p>
+            <div class="col-md-12" id="navbar">
+                <nav class="navbar navbar-expand-lg navbar-light justify-content-end">
+                    <button id="toggleButton" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                        <i style="color: #C87092;" class="fas fa-bars"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Link</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <span class="titulo">Calendário de flores</span>
+                <input type="button" class="botao" value="teste">
+            </div>
+            <div>
+                
+            </div>
+        </div>
+    </div>
+
+
+    #navbarTogglerDemo03{
+    text-align: right;
+}
+
+#toggleButton{
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+@media screen and (min-width: 600px){
+    #navbar{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .titulo{
+        margin-left    : 10%;
+        margin-top     : 3%;
+        color          : #C87092;
+        font-family    : IBM Plex Serif;
+        font-weight    : 700;
+        font-size      : 30px;
+        line-height    : 93.6px;
+        text-align     : center;
+        letter-spacing : 0.04em;
+    }
+}

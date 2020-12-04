@@ -1,0 +1,119 @@
+.wrap:after {
+    content : '';
+    display : block;
+    clear   : both;
+}
+
+.el {
+    float : left;
+}
+
+.el1 {
+    width  : 15%;
+    height : auto;
+}
+
+.el2 {
+    width  : 70%;
+    margin : 1%;
+}
+
+.el3 {
+    width: 70%;
+    height: 100%;
+}
+
+.el4 {
+    width  : 15%;
+    height : auto;
+    float  : right;
+}
+
+.el5 {
+    width  : 26%;
+    margin : 1%;
+    float  : right;
+}
+
+@media (max-width : 900px) {
+    .el1, .el4{
+        display : none;
+    }
+
+    .el3{
+        width : 100%;
+    }
+
+    .botao{
+        display : none;
+    }
+}
+
+@media screen and (min-width: 900px){
+    #navbar{
+        display : none;
+    }
+}
+
+.nav-item{
+    margin         : 2%;
+    min-width      : 100%;
+    border         : 0.5px solid #C87092;
+    box-sizing     : border-box;
+    filter         : drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    color          : #C87092;
+    font-family    : IBM Plex Serif;
+    font-weight    : 700;
+    text-align     : center;
+}
+
+#navbarTogglerDemo03{
+    text-align : right;
+}
+
+#toggleButton{
+    padding    : 0;
+    border     : none;
+    background : none;
+}
+
+.titulo{
+    margin-left    : 20%;
+    margin-top     : 3%;
+    color          : #C87092;
+    font-family    : IBM Plex Serif;
+    font-weight    : 700;
+    font-size      : 4vw;
+    text-align     : center;
+    letter-spacing : 0.04em;
+}
+
+.botao{
+    margin         : 1%;
+    margin-top     : 10%;
+    min-width      : 100%;
+    height         : 3vw;
+    border         : 0.5px solid #C87092;
+    box-sizing     : border-box;
+    filter         : drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    color          : #C87092;
+    font-family    : IBM Plex Serif;
+    font-weight    : 700;
+    text-align     : center;
+    letter-spacing : 0.04em;
+}
+
+.botao:hover{
+    margin         : 1%;
+    margin-top     : 10%;
+    min-width      : 100%;
+    height         : 3vw;
+    border         : 0.5px solid #C898;
+    box-sizing     : border-box;
+    filter         : drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    color          : #C898;
+    font-family    : IBM Plex Serif;
+    font-weight    : 700;
+    text-align     : center;
+    letter-spacing : 0.04em;
+}
