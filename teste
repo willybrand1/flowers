@@ -1,65 +1,76 @@
-<div class="container-flex">
-        <div class="row" >
-            <p>&nbsp;</p>
-            <div class="col-md-12" id="navbar">
-                <nav class="navbar navbar-expand-lg navbar-light justify-content-end">
-                    <button id="toggleButton" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-                        <i style="color: #C87092;" class="fas fa-bars"></i>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                            </li>
-                        </ul>
+<div class="row">
+            <div class="col-md-12">
+                <div class="el el8">
+                    <div class="firstP">
+                        <p>
+                            Cadastre as flores de acordo com o mês em que ela floresce
+                        </p>
                     </div>
-                </nav>
+                </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
-                <span class="titulo">Calendário de flores</span>
-                <input type="button" class="botao" value="teste">
-            </div>
-            <div>
-                
+            <div class="el el10">
+                <div class="col-md-12">
+                    <div class="el el7">
+                        <label for="flw_nome" class="texto">Nome</label>
+                        <br/>
+                        <input type="text" id="flw_nome" name="flw_nome" class="form-control" placeholder="Qual o nome da flor">
+                        <br/>
+                        <label for="flw_especie" class="texto">Espécie</label>
+                        <br/>
+                        <input type="text" id="flw_especie" name="flw_especie" class="form-control" placeholder="Qual a espécie ou nome científico">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="el el9" style="background: red;">
+                        <input type="text">
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+        <div class="row">
+            <div class="el el6">
+                <br/>
+                <label for="flw_descricao" class="texto">Descrição</label>
+                <br/>
+                <input type="text" id="flw_descricao" name="flw_descricao" class="form-control" style="width: 200%px" placeholder="Escreva uma breve descrição sobre a flor">
+                <br/>
+                <div class="form-group" id="slcMes_div">
+                    <label for="meses" class="texto">Escolha os meses</label>
+                    <br/>
+                    <?php
+                    $db  = new Banco(BANCO);
+                    $sql = "SELECT * FROM public.meses ORDER BY id_mes ASC";
+                    $rs  = $db->query($sql);
 
+                    foreach($rs as $row){
+                    ?>
+                    <input onclick="selectMes(this.value);" name="meses[]" type="checkbox" id="<?=$row['mes_abrev']?>" value="<?=$row['mes_abrev']?>">
+                    <label for="<?=$row['mes_abrev']?>"><?=$row['mes_abrev']?></label>
+                    <?php
+                    }
 
-    #navbarTogglerDemo03{
-    text-align: right;
-}
+                    $db->close();
+                    ?>
+                </div>
+                <div class="form-group" id="slcAbelha_div">
+                    <label for="slcAbelha" class="texto">Selecione as abelhas</label>
+                    <br/>
+                    <select name="slcAbelha[]" id="slcAbelha" class="js-example-basic-multiple" multiple="multiple">
+                        <option value="">&nbsp;</option>
+                        <?php
+                        $db  = new Banco(BANCO);
+                        $sql = "SELECT * FROM public.abelhas ORDER BY abl_nome ASC";
+                        $rs  = $db->query($sql);
 
-#toggleButton{
-    padding: 0;
-    border: none;
-    background: none;
-}
+                        foreach($rs as $row){
+                            echo '<option value="'.$row['id_abelha'].'">'.$row['abl_nome'].'</option>';
+                        }
 
-@media screen and (min-width: 600px){
-    #navbar{
-        display: none;
-    }
-}
-
-@media screen and (max-width: 1000px){
-    .titulo{
-        margin-left    : 10%;
-        margin-top     : 3%;
-        color          : #C87092;
-        font-family    : IBM Plex Serif;
-        font-weight    : 700;
-        font-size      : 30px;
-        line-height    : 93.6px;
-        text-align     : center;
-        letter-spacing : 0.04em;
-    }
-}
+                        $db->close();
+                        ?>
+                    </select>
+                </div>
+            </div>
+        </div>

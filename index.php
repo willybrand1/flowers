@@ -2,39 +2,43 @@
 include_once 'estrutura/header.php';
 include_once 'estrutura/includes.php';
 ?>
-<div class="wrap">
-    <div class="el el1">&nbsp;</div>
-    <div class="el el3">
-        <div class="el el2">
-            <span class="titulo">Calendário de flores</span>
-        </div>
-        <div class="el el5">
-            <button class="botao">
-                Cadastrar flores
-            </button>
-            <button class="botao">
-                Cadastrar abelhas
-            </button>
-            <div id="navbar">
-                <nav class="navbar navbar-expand-lg navbar-light justify-content-end">
-                    <button id="toggleButton" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-                        <i style="color: #C87092;" class="fas fa-bars"></i>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Cadastrar flores</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Cadastrar abelhas</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
+<div class="el el6">
+    <div class="form-group" id="slcAbelha_div">
+        <label for="slcAbelha" class="texto">Selecione as abelhas</label>
+        <br/>
+        <select name="slcAbelha[]" id="slcAbelha" class="js-example-basic-multiple" multiple="multiple">
+            <option value="">&nbsp;</option>
+            <?php
+            $db  = new Banco(BANCO);
+            $sql = "SELECT * FROM public.abelhas ORDER BY abl_nome ASC";
+            $rs  = $db->query($sql);
+
+            foreach($rs as $row){
+                echo '<option value="'.$row['id_abelha'].'">'.$row['abl_nome'].'</option>';
+            }
+
+            $db->close();
+            ?>
+        </select>
     </div>
-    <div class="el el4">&nbsp;</div>
+    <div class="form-group" id="slcMes_div">
+        <label for="meses" class="texto">Escolha os meses</label>
+        <br/>
+        <?php
+        $db  = new Banco(BANCO);
+        $sql = "SELECT * FROM public.meses ORDER BY id_mes ASC";
+        $rs  = $db->query($sql);
+
+        foreach($rs as $row){
+        ?>
+        <input onclick="selectMes(this.value);" name="meses[]" type="checkbox" id="<?=$row['mes_abrev']?>" value="<?=$row['mes_abrev']?>">
+        <label for="<?=$row['mes_abrev']?>"><?=$row['mes_abrev']?></label>
+        <?php
+        }
+
+        $db->close();
+        ?>
+    </div>
 </div>
 <?php
 include_once 'estrutura/footer.php';
