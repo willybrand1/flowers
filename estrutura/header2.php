@@ -9,10 +9,12 @@
         <link rel="stylesheet" href="config/css/main.css">
         <link href="config/css/select2.css" rel="stylesheet"/>
         <link rel="shortcut icon" href="favicon.icon"/>
+        <link href="http://hayageek.github.io/jQuery-Upload-File/4.0.11/uploadfile.css" rel="stylesheet">
         <script src="config/js/jquery-3.5.1.js"></script>
         <script src="config/js/select2.full.js"></script>
         <script src="config/js/all.js"></script>
         <script src="config/js/bootstrap.js"></script>
+        <script src="http://hayageek.github.io/jQuery-Upload-File/4.0.11/jquery.uploadfile.min.js"></script>
     </head>
     <body>
         <div class="wrap">

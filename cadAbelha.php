@@ -24,12 +24,12 @@ include_once 'estrutura/includes.php';
                 <br/>
                 <br/>
                 <br/>
-                <input type="button" value="Cancelar" class="botaoCancela">
-                <input type="button" value="Enviar" class="botaoSubmit">
+                <input type="button" value="Cancelar" class="botaoCancela" onclick="window.loaction.href = 'index.php'">
+                <input type="button" value="Enviar" class="botaoSubmit" onclick="submitForm('<?=$codAbelha?>','abelha');">
             </div>
         </div>
     </div>
 </div>
 <?php
-include_once 'estrutura/footer.php';
+include_once 'estrutura/footer2.php';
 ?>

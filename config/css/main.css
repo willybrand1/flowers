@@ -1,3 +1,7 @@
+body, html{
+    overflow-x: hidden;
+}
+
 .wrap:after {
     content : '';
     display : block;
@@ -124,6 +128,14 @@
 
     .el .el9{
         margin-top: -75%;
+    }
+
+    .footerImg1{
+        margin-top: 100%;
+    }
+
+    .footerImg2{
+        margin-top: 60%;
     }
 }
 
@@ -286,6 +298,24 @@ input[type=checkbox]:checked + label {
     top: -80%;
     border-radius: 383.659px;
     transform: rotate(-190.98deg);
+    z-index: -9999;
+}
+
+.footerImg1{
+    position: absolute;
+    width: 626px;
+    height: 428px;
+    left: -10%;
+    top: 73%;
+    z-index: -9999;
+}
+
+.footerImg2{
+    position: absolute;
+    width: 373px;
+    height: 159px;
+    right: -2%;
+    top: 80%;
     z-index: -9999;
 }
 
