@@ -15,6 +15,7 @@
         <script src="config/js/all.js"></script>
         <script src="config/js/bootstrap.js"></script>
         <script src="http://hayageek.github.io/jQuery-Upload-File/4.0.11/jquery.uploadfile.min.js"></script>
+        <script src="config/js/arrayToTable.js"></script>
     </head>
     <body>
         <div class="wrap">

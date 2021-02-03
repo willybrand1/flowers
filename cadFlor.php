@@ -52,7 +52,7 @@ if($codFlor !== "0"){
             </div>
         </div>
     </div>
-    <form id="theuploadform">
+    <form action="upload.php" target="postiframe" id="theuploadform" method="post" enctype="multipart/form-data">
         <div class="col-md-12">
             <div class="el el9">
                 <label for="fileUpload"  class="input-file" style="text-align: center;">
@@ -61,11 +61,13 @@ if($codFlor !== "0"){
                     </div>
                     <br/>
                     <span style="color: #FFBED7;" class="texto">ESCOLHA UMA IMAGEM</span>
-                    <input type="file" name="fileUpload" id="fileUpload" onchange="mudaImagem(this.value);">
+                    <input type="file" name="fileUpload" id="fileUpload">
                 </label>
             </div>
         </div>
+        <input type="submit" value="submit" style="display:none;" id="submitBtn">
     </form>
+    <iframe id="postiframe" name="postiframe" style="display: none;"></iframe>
     <div class="col-md-12">
             <br/>
             <div class="el el6">
@@ -73,7 +75,7 @@ if($codFlor !== "0"){
             <br/>
             <?php
             $db  = new Banco(BANCO);
-            $sql = "SELECT * FROM public.meses ORDER BY id_mes ASC";
+            $sql = "SELECT * FROM meses ORDER BY cod_mes ASC";
             $rs  = $db->query($sql);
 
             foreach($rs as $row){
@@ -92,11 +94,11 @@ if($codFlor !== "0"){
                 <option value="">&nbsp;</option>
                 <?php
                 $db  = new Banco(BANCO);
-                $sql = "SELECT * FROM public.abelhas ORDER BY abl_nome ASC";
+                $sql = "SELECT * FROM abelhas ORDER BY abl_nome ASC";
                 $rs  = $db->query($sql);
 
                 foreach($rs as $row){
-                    echo '<option value="'.$row['id_abelha'].'">'.$row['abl_nome'].'</option>';
+                    echo '<option value="'.$row['abl_nome'].'">'.$row['abl_nome'].' ('.$row['abl_especie'].')</option>';
                 }
 
                 $db->close();
@@ -108,6 +110,9 @@ if($codFlor !== "0"){
                 <br/>
                 <input type="button" value="Cancelar" class="botaoCancela" onclick="window.loaction.href = 'index.php'">
                 <input type="submit" value="Enviar" class="botaoSubmit" onclick="submitForm('<?=$codFlor?>','flor');">
+                <br/>
+                <br/>
+                <br/>
             </div>
         </div>
     </div>
